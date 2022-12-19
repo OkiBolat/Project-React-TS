@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button from '../../components/Button/Button';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
@@ -7,3 +7,7 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template:ComponentStory<typeof Button> = (args) => <Button {...args} />;
+
+export const Default = Template.bind({})
+
+Default.args = {}
