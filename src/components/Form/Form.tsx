@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from './Form.module.css';
+import styles from './Form.module.scss';
 
 interface Props {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
