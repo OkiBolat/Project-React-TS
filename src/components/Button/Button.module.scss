@@ -1,7 +1,27 @@
 .button {
-  border: none;
-  color: #fff;
-  border-radius: 32px;
-  padding: 16px 36px;
-  cursor: pointer;
+    border: 1px solid #303535;;
+    color: #fff;
+    border-radius: 32px;
+    padding: 16px 36px;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+        border: 1px solid #347B81;
+        background: #F9FAF9;
+    }
+}
+
+.button_dark {
+    border: 1px solid #fff;;
+    color: #fff;
+    border-radius: 32px;
+    padding: 16px 36px;
+    cursor: pointer;
+    transition: 0.2s;
+    background: '#46939A';
+    color: '#FFFFFF';
+    &:hover {
+        border: 1px solid #347B81;
+        background: #F9FAF9;
+    }
 }

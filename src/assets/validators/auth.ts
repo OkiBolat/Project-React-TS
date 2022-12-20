@@ -1,3 +1,1 @@
-export class AuthForm {
-  
-}
+export class AuthForm {}
