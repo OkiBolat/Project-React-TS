@@ -1,20 +1,15 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface Default {
+export interface Default {}
 
-}
-
-const initialState: Default = {
-  
-}
+const initialState: Default = {};
 
 export const Default = createSlice({
-  name: 'default',
-  initialState,
-  reducers: {
-  },
-})
+    name: 'default',
+    initialState,
+    reducers: {},
+});
 
-export const { } = Default.actions
+export const {} = Default.actions;
 
-export default Default.reducer
+export default Default.reducer;

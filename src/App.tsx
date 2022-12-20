@@ -1,15 +1,14 @@
 import React from 'react';
-import './App.scss';
 import AuthPage from './pages/AuthPage';
 import MainPage from './pages/MainPage';
+import './App.scss';
 
 function App() {
-  return (
-    <div className="App">
-      <AuthPage/>
-      <MainPage/>
-    </div>
-  );
+    return (
+        <div className='App'>
+            <MainPage />
+        </div>
+    );
 }
 
 export default App;
