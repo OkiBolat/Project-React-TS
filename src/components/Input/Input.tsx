@@ -3,17 +3,18 @@ import styles from './Input.module.scss';
 
 interface Props {
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: any;
   placeholder?: string;
 }
 
 const Input: React.FunctionComponent<Props> = ({ value, onChange, placeholder }) => {
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event);
+  const handleChange = (e: any) => {
+    onChange(e)
   };
 
   return (
     <input
+      className={styles.input}
       type="text"
       value={value}
       onChange={handleChange}

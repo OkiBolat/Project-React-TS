@@ -1,0 +1,50 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 48px 68px;
+  gap: 24px;
+  width: 456px;
+  height: 478px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+
+  &_forgot_link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #616868;
+    flex: none;
+    flex-grow: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  &_signUp_block {
+    display: flex;
+  }
+
+  &_signUp_text {
+    font-weight: 500;
+    font-size: 14px;
+    color: #303535;
+  }
+
+  &_signUp_link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #347B81;
+    border: none;
+    cursor: pointer;
+
+  }
+}
+
+.additional_btn_class {
+  width: 100%;
+  background: linear-gradient(267.49deg, #4B9DA4 11.08%, #46949B 72.91%);
+}

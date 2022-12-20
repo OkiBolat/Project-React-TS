@@ -35,7 +35,7 @@ const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
             }
           </ul>
         }
-        <Button onClick={() => { }}>
+        <Button primary={true} onClick={() => { }}>
           {isAuth ? "Выйти" : "Войти"}
         </Button>
       </div>
