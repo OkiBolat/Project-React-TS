@@ -1,4 +1,4 @@
-import { createStore } from 'effector';
+import { createStore, createEvent } from 'effector';
 import MOCK_ART_WORKS from '../../../mock/mockArts';
 
 const artWorksJSON = localStorage.getItem('artWorks');

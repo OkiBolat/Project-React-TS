@@ -43,7 +43,7 @@ const MOCK_AUTHORS: Author[] = [
     },
     {
         id: 4,
-        name: 'Brian ',
+        name: 'Brian',
         surname: 'Balfour-Oatts',
         phone: '8 (917) 999 22 22',
         email: 'brian@gmail.com',

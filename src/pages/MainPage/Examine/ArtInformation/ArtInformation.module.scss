@@ -2,10 +2,12 @@
     overflow: auto;
     border-radius: 8px;
     border: 1px solid #b2bebd;
+    max-width: 370px;
+    height: 100%;
 }
 
 .table {
-    max-width: 370px;
+    height: 100%;
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
