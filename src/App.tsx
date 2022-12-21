@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-
+import { Route, Routes } from 'react-router-dom';
+import { useStore } from 'effector-react';
+import { $loginState } from './pages/AuthPage/model';
 import Header from './components/Header';
 import AuthPage from './pages/AuthPage';
 import MainPage from './pages/MainPage';
-import authData from './utils/authData.json';
+import authData from './mock/authData.json';
+
 import './App.scss';
-import { useStore } from 'effector-react';
-import { $loginState } from './pages/AuthPage/model';
 
 function App() {
     const auth = useStore($loginState);
@@ -24,7 +25,11 @@ function App() {
     return (
         <div className='App'>
             <Header isAuth={authenticated} />
-            {authenticated ? <MainPage /> : <AuthPage />}
+            <Routes>
+                <Route path='/' element={authenticated ? <MainPage /> : <AuthPage />} />
+                <Route path='/main' element={<MainPage />} />
+                <Route path='/auth' element={<AuthPage />} />
+            </Routes>
         </div>
     );
 }

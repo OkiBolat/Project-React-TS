@@ -3,7 +3,7 @@ import Auth from './Auth/Auth';
 import { useStore } from 'effector-react';
 import { login, $loginState } from './model';
 import { FormValues } from '../../assets/types/auth';
-import { formValidate } from '../../assets/validators/formHelpers';
+import { formValidate } from '../../utils/formHelpers';
 import styles from './AuthPage.module.scss';
 
 interface IAuthPageProps {

@@ -1,4 +1,4 @@
-import { FormValues } from '../types/auth';
+import { FormValues } from '../assets/types/auth';
 
 export const formValidate = (formValues: FormValues, setErrors: any): boolean => {
     const newErrors: FormValues = {
