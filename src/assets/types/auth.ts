@@ -6,6 +6,7 @@ export type LoginData = {
 export type LoginResult = {
     token: string;
     userId: string;
+    error?: string | boolean;
 };
 
 export type FormValues = {

@@ -6,7 +6,7 @@ import MainPage from './pages/MainPage';
 import authData from './utils/authData.json';
 import './App.scss';
 import { useStore } from 'effector-react';
-import { $loginState } from './pages/AuthPage/authStore';
+import { $loginState } from './pages/AuthPage/model';
 
 function App() {
     const auth = useStore($loginState);

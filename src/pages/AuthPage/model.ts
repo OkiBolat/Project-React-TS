@@ -1,5 +1,5 @@
 import { createStore, createEvent, createEffect } from 'effector';
-import { LoginResult, LoginData } from './../../assets/types/auth';
+import { LoginResult, LoginData } from '../../assets/types/auth';
 
 import authData from '../../utils/authData.json';
 export const $loginState = createStore<LoginResult | null>(null);
@@ -16,7 +16,11 @@ $loginState
                 userId: authData.userId,
             };
         } else {
-            return null;
+            return {
+                token: '',
+                userId: '',
+                error: 'Неверный логин или пароль'
+            };
         }
     })
     .on(logout, () => {
