@@ -98,24 +98,22 @@ const DecisionMaker: React.FC<IDecisionMakerProps> = ({
 
             <div className={styles.pagination_numbers}>
                 {PagintationUtils.getPaginationNumbers(currentArtIndex, 5, artsLength).map(
-                    (paginationNumber, index) => (
-                        <button
-                            key={index}
-                            className={[
-                                currentArtIndex === paginationNumber ? styles.active : '',
-                                typeof paginationNumber === 'string' ? styles.dots : '',
-                            ].join(' ')}
-                            onClick={handleMoveTo(
-                                typeof paginationNumber === 'string'
-                                    ? currentArtIndex
-                                    : paginationNumber
-                            )}
-                        >
-                            {typeof paginationNumber === 'string'
-                                ? paginationNumber
-                                : paginationNumber + 1}
-                        </button>
-                    )
+                    (paginationNumber, index) => {
+                        const isDots = typeof paginationNumber === 'string';
+                        const isActive = currentArtIndex === paginationNumber;
+                        return (
+                            <button
+                                key={index}
+                                className={[
+                                    isActive ? styles.active : '',
+                                    isDots ? styles.dots : '',
+                                ].join(' ')}
+                                onClick={handleMoveTo(isDots ? currentArtIndex : paginationNumber)}
+                            >
+                                {isDots ? paginationNumber : paginationNumber + 1}
+                            </button>
+                        );
+                    }
                 )}
             </div>
         </div>
