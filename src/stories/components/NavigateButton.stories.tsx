@@ -1,4 +1,4 @@
-import NavigateButton from '../../components/NavigateButton';
+import NavigateButton from '../../ui/NavigateButton';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
