@@ -94,6 +94,46 @@ const MOCK_ART_WORKS: ArtWork[] = [
         url: 'https://images.theconversation.com/files/296052/original/file-20191008-128681-ngzwqb.jpg?ixlib=rb-1.1.0&rect=15%2C20%2C929%2C926&q=45&auto=format&w=1000&fit=clip',
         decision: null,
     },
+    {
+        id: 5,
+        author: MOCK_AUTHORS[1],
+        created_date: new Date(1999, 0, 12).toDateString(),
+        competition: 'Ночь',
+        url: 'https://lh6.ggpht.com/HlgucZ0ylJAfZgusynnUwxNIgIp5htNhShF559x3dRXiuy_UdP3UQVLYW6c=s1200',
+        decision: null,
+    },
+    {
+        id: 6,
+        author: MOCK_AUTHORS[2],
+        created_date: new Date(2000, 11, 12).toDateString(),
+        competition: 'Маленький принц',
+        url: 'https://ensia.com/wp-content/uploads/2018/01/Voices_Arts_main-760x378.jpg',
+        decision: null,
+    },
+    {
+        id: 7,
+        author: MOCK_AUTHORS[3],
+        created_date: new Date(2008, 8, 8).toDateString(),
+        competition: 'Современное искусство',
+        url: 'https://ecorner.stanford.edu/wp-content/uploads/sites/2/2016/08/eCorner_Arts_Tech5-960x541.jpg',
+        decision: null,
+    },
+    {
+        id: 8,
+        author: MOCK_AUTHORS[0],
+        created_date: new Date(2009, 9, 8).toDateString(),
+        competition: 'Современное искусство',
+        url: 'https://umsu.unimelb.edu.au/pageassets/express-yourself/arts/ARTS_Album%20Cover[2022]_.png',
+        decision: null,
+    },
+    {
+        id: 9,
+        author: MOCK_AUTHORS[4],
+        created_date: new Date(20010, 3, 3).toDateString(),
+        competition: 'Маленький принц',
+        url: 'https://images.theconversation.com/files/296052/original/file-20191008-128681-ngzwqb.jpg?ixlib=rb-1.1.0&rect=15%2C20%2C929%2C926&q=45&auto=format&w=1000&fit=clip',
+        decision: null,
+    },
 ];
 
 export default MOCK_ART_WORKS;
