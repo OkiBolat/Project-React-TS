@@ -10,7 +10,7 @@ import { FormValues } from '../../../assets/types/auth';
 interface IAuthProps {
     children?: React.ReactNode;
     onAuth: (e: any) => void;
-    submitError?: string;
+    submitError?: string| boolean;
     formValues: FormValues;
     errors: FormValues;
     togglePasswordVisibility: () => void;
@@ -25,29 +25,30 @@ const Auth: React.FC<IAuthProps> = ({
     onAuth,
     togglePasswordVisibility,
     isPasswordVisible,
+    submitError
 }) => {
     return (
         <div className={styles.auth}>
             <Form onSubmit={onAuth}>
                 <div className={styles.auth_title}>Вход</div>
                 <InputValidate
+                    label='E-mail'
                     error={errors.email}
                     inputName='email'
-                    label='E-mail'
                     value={formValues.email}
                     setValue={handleChange}
                 />
                 <InputValidate
+                    label='Пароль'
                     type={!isPasswordVisible ? 'text' : 'password'}
                     error={errors.password}
                     inputName='password'
                     icon={!isPasswordVisible ? viewIcon : hideIcon}
                     onClickInputIcon={togglePasswordVisibility}
-                    label='Пароль'
                     value={formValues.password}
                     setValue={handleChange}
                 />
-                {/* <p className={styles.auth_submit_error}>{submitError && submitError}</p> */}
+                <p className={styles.auth_submit_error}>{submitError && submitError}</p>
                 <p className={styles.auth_forgot_link}>Забыли пароль?</p>
                 <Button
                     variant='secondary'

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import logo from '../../assets/images/logo.png';
-import { logout } from '../../pages/AuthPage/authStore';
+import logo from '../../assets/images/logo.svg';
+import { logout } from '../../pages/AuthPage/model';
 import Button from '../Button';
 import styles from './Header.module.scss';
 
