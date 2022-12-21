@@ -86,5 +86,29 @@
 
     &_selected {
         background-color: #c9e8e4;
+        pointer-events: none;
     }
+}
+
+.modal_textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+
+    border: 1px solid #347b81;
+    border-radius: 8px;
+    width: 100%;
+    height: 120px;
+    padding: 16px 20px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #303535;
 }

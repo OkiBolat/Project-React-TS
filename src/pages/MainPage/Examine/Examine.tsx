@@ -19,8 +19,8 @@ const Examine: React.FC<IExamineProps> = (props) => {
         addDecision({ id, decision: { value: true } });
     };
 
-    const handleRefuseArtWork = (id: number) => () => {
-        addDecision({ id, decision: { value: false, reason: 'something' } });
+    const handleRefuseArtWork = (id: number, reason: string) => {
+        addDecision({ id, decision: { value: false, reason } });
     };
 
     return (
