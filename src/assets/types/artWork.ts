@@ -8,7 +8,7 @@ export type Author = {
     birthCertificate: string;
 };
 
-export type Decision = { value: false; reason: string } | { value: true };
+export type Decision = { value: true } | { value: false; reason: string };
 
 export type ArtWork = {
     id: number;
