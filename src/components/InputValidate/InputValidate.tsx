@@ -7,7 +7,6 @@ interface IInputValidateProps {
     value: string;
     label: string;
     children?: React.ReactNode;
-    validateValue: (value: string) => boolean;
     error: string;
     type?: string;
     icon?: any;
@@ -19,24 +18,12 @@ const InputValidate: React.FC<IInputValidateProps> = ({
     value,
     setValue,
     label = '',
-    validateValue,
     icon,
     onClickInputIcon,
     error,
     type,
     inputName,
 }) => {
-    const [isValid, setIsValid] = useState<boolean>(false);
-    const [errorMessage, setErrorMessage] = useState<string>('');
-
-    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value;
-        setValue(value);
-        const isValid = validateValue(value);
-        setIsValid(() => validateValue(value));
-        setErrorMessage(isValid ? '' : error);
-    };
-
     return (
         <div className={styles.inputValidate}>
             <div className={styles.inputValidate_label}>
@@ -48,10 +35,9 @@ const InputValidate: React.FC<IInputValidateProps> = ({
                 onClickInputIcon={onClickInputIcon}
                 type={type}
                 value={value}
-                onChange={handleEmailChange}
+                onChange={setValue}
             />
-
-            <div className={styles.inputValidate_error}>{!isValid && errorMessage}</div>
+            <span className={styles.inputValidate_error}>{error && error}</span>
         </div>
     );
 };

@@ -2,6 +2,9 @@
     width: 100%;
     background: #689fa1;
     border-radius: 0px;
+    width: 100%;
+    background: #689fa1;
+    border-radius: 0px;
 
     &_container {
         padding: 12px 0;
@@ -12,7 +15,23 @@
         justify-content: space-between;
         align-items: center;
     }
+    &_container {
+        padding: 12px 0;
+        max-width: 1100px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
+    &_list {
+        display: flex;
+        list-style: none;
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+    }
     &_list {
         display: flex;
         list-style: none;
@@ -31,8 +50,18 @@
         transition: 0.2s;
         cursor: pointer;
     }
+    &_item {
+        color: #c9e8e4;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        transition: 0.2s;
+        cursor: pointer;
+    }
 }
 
 .active {
     color: #ffffff;
+    color: #ffffff;
 }
+

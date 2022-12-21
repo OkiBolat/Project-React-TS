@@ -2,33 +2,29 @@ import React, { useState } from 'react';
 import Button from '../../../components/Button';
 import Form from '../../../components/Form';
 import InputValidate from '../../../components/InputValidate';
+import hideIcon from '../../../assets/images/hide.png';
+import viewIcon from '../../../assets/images/view.png';
 import styles from './Auth.module.scss';
+import { FormValues } from '../../../assets/types/auth';
 
 interface IAuthProps {
     children?: React.ReactNode;
-    email: string;
-    setEmail: (value: string) => void;
-    password: string;
-    setPassword: (value: string) => void;
-    onAuth: (e:any) => void;
+    onAuth: (e: any) => void;
     submitError?: string;
-    validateEmail: (str: string) => boolean;
-    validatePassword: (str: string) => boolean;
-    passwordIcon: any;
+    formValues: FormValues;
+    errors: FormValues;
     togglePasswordVisibility: () => void;
+    isPasswordVisible: boolean;
+    handleChange: (e: any) => void;
 }
 
 const Auth: React.FC<IAuthProps> = ({
-    email,
-    setEmail,
-    password,
-    setPassword,
+    handleChange,
+    errors,
+    formValues,
     onAuth,
-    submitError = '',
-    validateEmail,
-    validatePassword,
-    passwordIcon,
     togglePasswordVisibility,
+    isPasswordVisible
 }) => {
 
     return (
@@ -36,25 +32,23 @@ const Auth: React.FC<IAuthProps> = ({
             <Form onSubmit={onAuth}>
                 <div className={styles.auth_title}>Вход</div>
                 <InputValidate
+                    error={errors.email}
                     inputName='email'
-                    validateValue={validateEmail}
-                    error='Некорректный e-mail'
                     label='E-mail'
-                    value={email}
-                    setValue={setEmail}
+                    value={formValues.email}
+                    setValue={handleChange}
                 />
                 <InputValidate
+                    type={!isPasswordVisible ? 'text' : 'password'}
+                    error={errors.password}
                     inputName='password'
-                    icon={passwordIcon}
+                    icon={!isPasswordVisible ? viewIcon : hideIcon}
                     onClickInputIcon={togglePasswordVisibility}
-                    type='password'
-                    validateValue={validatePassword}
-                    error='Некорректный пароль'
                     label='Пароль'
-                    value={password}
-                    setValue={setPassword}
+                    value={formValues.password}
+                    setValue={handleChange}
                 />
-                <p className={styles.auth_submit_error}>{submitError && submitError}</p>
+                {/* <p className={styles.auth_submit_error}>{submitError && submitError}</p> */}
                 <p className={styles.auth_forgot_link}>Забыли пароль?</p>
                 <Button
                     type="submit"

@@ -1,0 +1,33 @@
+.navigate_button {
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9faf9;
+    transition: 0.1s border linear;
+    border: 1px solid transparent;
+    padding: 12px;
+
+    &:hover {
+        border: 1px solid #347b81;
+        cursor: pointer;
+    }
+}
+
+.arrow {
+    width: 100%;
+    height: 100%;
+
+    &.next {
+        transform: rotate(180deg);
+    }
+}
