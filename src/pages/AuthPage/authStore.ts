@@ -24,19 +24,5 @@ $loginState
   })
 
 
-// export const loginEffect = createEffect({
-//   async handler({ email, password }: LoginData) {
-//     // Имитация авторизации с проверкой данных из JSON-файла
-//     if (email === authData.email && password === authData.password) {
-//       return {
-//         token: authData.token,
-//         userId: authData.userId,
-//       };
-//     } else {
-//       throw new Error('Invalid email or password');
-//     }
-//   },
-// })
-
 
 
