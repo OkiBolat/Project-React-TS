@@ -2,7 +2,6 @@ import { createStore, createEvent, createEffect } from 'effector';
 import { LoginResult, LoginData } from '../../assets/types/auth';
 
 import authData from '../../mock/authData.json';
-
 export const $loginState = createStore<LoginResult | null>(null);
 
 export const login = createEvent<LoginData>();

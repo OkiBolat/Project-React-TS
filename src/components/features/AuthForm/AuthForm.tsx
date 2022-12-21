@@ -1,52 +1,43 @@
 import React, { useState } from 'react';
-import Button from '../../../components/Button';
-import Form from '../../../components/Form';
-import InputValidate from '../../../components/InputValidate';
-import hideIcon from '../../../assets/images/hide.png';
-import viewIcon from '../../../assets/images/view.png';
-import styles from './Auth.module.scss';
+import Button from '../../Button';
+import Form from '../../Form';
+import styles from './AuthForm.module.scss';
 import { FormValues } from '../../../assets/types/auth';
+import Input from '../../Input';
+import PasswordInput from '../../PasswordInput/Input/PasswordInput';
 
 interface IAuthProps {
     children?: React.ReactNode;
-    onAuth: (e: any) => void;
-    submitError?: string| boolean;
+    onSubmit: (e: any) => void;
+    submitError?: string | boolean;
     formValues: FormValues;
     errors: FormValues;
-    togglePasswordVisibility: () => void;
-    isPasswordVisible: boolean;
-    handleChange: (e: any) => void;
+    onChangeInputs: (e: any) => void;
 }
 
-const Auth: React.FC<IAuthProps> = ({
-    handleChange,
+const AuthForm: React.FC<IAuthProps> = ({
+    onChangeInputs,
     errors,
     formValues,
-    onAuth,
-    togglePasswordVisibility,
-    isPasswordVisible,
+    onSubmit,
     submitError
 }) => {
     return (
         <div className={styles.auth}>
-            <Form onSubmit={onAuth}>
+            <Form onSubmit={onSubmit}>
                 <div className={styles.auth_title}>Вход</div>
-                <InputValidate
+                <Input
                     label='E-mail'
-                    error={errors.email}
                     inputName='email'
+                    error={errors.email}
                     value={formValues.email}
-                    setValue={handleChange}
+                    onChange={onChangeInputs}
                 />
-                <InputValidate
+                <PasswordInput
                     label='Пароль'
-                    type={!isPasswordVisible ? 'text' : 'password'}
                     error={errors.password}
-                    inputName='password'
-                    icon={!isPasswordVisible ? viewIcon : hideIcon}
-                    onClickInputIcon={togglePasswordVisibility}
                     value={formValues.password}
-                    setValue={handleChange}
+                    onChange={onChangeInputs}
                 />
                 <p className={styles.auth_submit_error}>{submitError && submitError}</p>
                 <p className={styles.auth_forgot_link}>Забыли пароль?</p>
@@ -54,7 +45,7 @@ const Auth: React.FC<IAuthProps> = ({
                     variant='secondary'
                     type='submit'
                     className={styles.additional_btn_class}
-                    onClick={(e) => onAuth(e)}
+                    onClick={(e) => onSubmit(e)}
                 >
                     Войти
                 </Button>
@@ -67,4 +58,4 @@ const Auth: React.FC<IAuthProps> = ({
     );
 };
 
-export default Auth;
+export default AuthForm;

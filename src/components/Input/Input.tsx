@@ -9,6 +9,10 @@ interface Props {
     icon?: any;
     onClickInputIcon?: () => void;
     name?: string;
+    label?: string;
+    children?: React.ReactNode;
+    error?: string;
+    inputName?: string;
 }
 
 const Input: React.FunctionComponent<Props> = ({
@@ -18,22 +22,30 @@ const Input: React.FunctionComponent<Props> = ({
     type = 'text',
     icon,
     onClickInputIcon,
-    name,
+    name='name',
+    label,
+    error,
 }) => {
     return (
-        <div className={styles.input_wrp}>
-            <input
-                id={name}
-                name={name}
-                className={styles.input}
-                type={type}
-                value={value}
-                onChange={onChange}
-                placeholder={placeholder}
-            />
-            {icon && value && (
-                <img className={styles.input_icon} onClick={onClickInputIcon} src={icon} alt='' />
-            )}
+        <div className={styles.inputValidate}>
+            <div className={styles.inputValidate_label}>
+                <label htmlFor={name}>{label}:</label>
+            </div>
+            <div className={styles.input_wrp}>
+                <input
+                    id={name}
+                    name={name}
+                    className={styles.input}
+                    type={type}
+                    value={value}
+                    onChange={onChange}
+                    placeholder={placeholder}
+                />
+                {icon && value && (
+                    <img className={styles.input_icon} onClick={onClickInputIcon} src={icon} alt='' />
+                )}
+            </div>
+            <span className={styles.inputValidate_error}>{error}</span>
         </div>
     );
 };

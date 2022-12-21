@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Auth from './Auth/Auth';
+import AuthForm from '../../components/features/AuthForm';
 import { useStore } from 'effector-react';
 import { login, $loginState } from './model';
 import { FormValues } from '../../assets/types/auth';
-import { formValidate } from '../../utils/formHelpers';
+import { formValidate } from '../../assets/validators/formHelpers';
 import styles from './AuthPage.module.scss';
 
 interface IAuthPageProps {
@@ -18,12 +18,8 @@ const AuthPage: React.FC<IAuthPageProps> = () => {
     const [formValues, setFormValues] = useState<FormValues>({ email: '', password: '' });
     const [errors, setErrors] = useState<FormValues>({ email: '', password: '' });
 
-    // Логика скрытия пароля
-    const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(true);
-    const togglePasswordVisibility = () => setIsPasswordVisible(() => !isPasswordVisible);
-
     //Обработчик инпутов
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeInputs = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setFormValues({
             ...formValues,
@@ -32,7 +28,7 @@ const AuthPage: React.FC<IAuthPageProps> = () => {
     };
 
     // Submit
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (formValidate(formValues, setErrors)) {
             const { email, password } = formValues;
@@ -49,14 +45,12 @@ const AuthPage: React.FC<IAuthPageProps> = () => {
     return (
         <div className={styles.authPage}>
             <div className={styles.authPage_container}>
-                <Auth
-                    isPasswordVisible={isPasswordVisible}
+                <AuthForm
                     errors={errors}
                     submitError={submitError}
                     formValues={formValues}
-                    handleChange={handleChange}
-                    onAuth={handleSubmit}
-                    togglePasswordVisibility={togglePasswordVisibility}
+                    onChangeInputs={onChangeInputs}
+                    onSubmit={onSubmit}
                 />
             </div>
         </div>

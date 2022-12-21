@@ -29,14 +29,14 @@ const InputValidate: React.FC<IInputValidateProps> = ({
             <div className={styles.inputValidate_label}>
                 <label htmlFor={inputName}>{label}:</label>
             </div>
-            <Input
+            {/* <Input
                 name={inputName}
                 icon={icon}
                 onClickInputIcon={onClickInputIcon}
                 type={type}
                 value={value}
                 onChange={setValue}
-            />
+            /> */}
             <span className={styles.inputValidate_error}>{error && error}</span>
         </div>
     );
