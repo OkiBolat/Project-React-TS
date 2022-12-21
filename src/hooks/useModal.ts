@@ -1,18 +1,12 @@
 import { useState } from 'react';
 
-export type ModalHookReturnProps = {
-    show: () => void;
-    hide: () => void;
-    isVisible: boolean;
-};
+const useModal = () => {
+    const [show, setShow] = useState(false);
 
-const useModal = (): ModalHookReturnProps => {
-    const [isVisible, setIsVisible] = useState(false);
+    const handleShowModal = () => setShow(true);
+    const handleCloseModal = () => setShow(false);
 
-    const show = () => setIsVisible(true);
-    const hide = () => setIsVisible(false);
-
-    return { show, hide, isVisible };
+    return { show, handleCloseModal, handleShowModal };
 };
 
 export default useModal;

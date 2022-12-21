@@ -1,4 +1,4 @@
-import Form from '../../ui/Form/Form';
+import Form from '../../components/Form/Form';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
