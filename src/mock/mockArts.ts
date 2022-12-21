@@ -1,4 +1,4 @@
-import { ArtWork, Author } from '../assets/types/artWork';
+import { ArtWork, Author } from '../libs/types/artWork';
 
 const MOCK_AUTHORS: Author[] = [
     {

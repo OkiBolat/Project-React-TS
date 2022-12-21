@@ -9,8 +9,8 @@ const usePagination = (defaultIndex: number, arrayLength: number) => {
     const movePrev = () =>
         setCurrentIndex((prevIndex) => (prevIndex - 1 < 0 ? arrayLength - 1 : prevIndex - 1));
 
-    const moveTo = (index: number) => () =>
-        setCurrentIndex((prevIndex) => (index < 0 && index >= arrayLength ? prevIndex : index));
+    const moveTo = (index: number) =>
+        setCurrentIndex((prevIndex) => (index < 0 || index >= arrayLength ? prevIndex : index));
 
     return { currentIndex, moveNext, movePrev, moveTo };
 };
