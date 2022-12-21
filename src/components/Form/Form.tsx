@@ -7,7 +7,9 @@ interface Props {
 }
 
 const Form: React.FunctionComponent<Props> = ({ onSubmit, children }) => (
-    <form onSubmit={onSubmit}>{children}</form>
+    <form className={styles.form} onSubmit={onSubmit}>
+        {children}
+    </form>
 );
 
 export default Form;

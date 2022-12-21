@@ -10,10 +10,17 @@ body {
     margin: 0;
     font-size: 16px;
     font-family: 'Inter', sans-serif;
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
 }
 
 .container {
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
+}
+
+.App {
+    min-height: 100vh;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArtWork } from '../../../../types/artWork';
+import { ArtWork } from '../../../../assets/types/artWork';
 import DateUtils from '../../../../utils/dateUtils';
 import styles from './ArtInformation.module.scss';
 

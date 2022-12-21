@@ -10,7 +10,6 @@ interface IMainProps {
 const MainPage: React.FC<IMainProps> = (props) => {
     return (
         <>
-            <Header isAuth={true}></Header>
             <Examine />
         </>
     );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo.svg';
+import { logout } from '../../pages/AuthPage/model';
 import Button from '../Button';
 import styles from './Header.module.scss';
 
@@ -12,6 +13,10 @@ const list = ['Проверка', 'Пользователи', 'Менеджер�
 
 const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
     const [activeItem, setActiveItem] = useState(0);
+
+    const handleLogout = () => {
+        logout();
+    };
     return (
         <div className={styles.header}>
             <div className={styles.header_container}>
@@ -34,7 +39,9 @@ const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
                         ))}
                     </ul>
                 )}
-                <Button onClick={() => {}}>{isAuth ? 'Выйти' : 'Войти'}</Button>
+                <Button variant='primary' onClick={handleLogout}>
+                    {isAuth ? 'Выйти' : 'Войти'}
+                </Button>
             </div>
         </div>
     );

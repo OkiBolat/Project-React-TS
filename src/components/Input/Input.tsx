@@ -3,16 +3,39 @@ import styles from './Input.module.scss';
 
 interface Props {
     value: string;
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange: any;
     placeholder?: string;
+    type?: string;
+    icon?: any;
+    onClickInputIcon?: () => void;
+    name?: string;
 }
 
-const Input: React.FunctionComponent<Props> = ({ value, onChange, placeholder }) => {
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        onChange(event);
-    };
-
-    return <input type='text' value={value} onChange={handleChange} placeholder={placeholder} />;
+const Input: React.FunctionComponent<Props> = ({
+    value,
+    onChange,
+    placeholder,
+    type = 'text',
+    icon,
+    onClickInputIcon,
+    name,
+}) => {
+    return (
+        <div className={styles.input_wrp}>
+            <input
+                id={name}
+                name={name}
+                className={styles.input}
+                type={type}
+                value={value}
+                onChange={onChange}
+                placeholder={placeholder}
+            />
+            {icon && value && (
+                <img className={styles.input_icon} onClick={onClickInputIcon} src={icon} alt='' />
+            )}
+        </div>
+    );
 };
 
 export default Input;
