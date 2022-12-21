@@ -1,6 +1,6 @@
 import { createStore, createEvent } from 'effector';
 import MOCK_ART_WORKS from '../../../mock/mockArts';
-import { Decision, ArtWork } from '../../../types/artWork';
+import { Decision, ArtWork } from '../../../assets/types/artWork';
 
 const artWorksJSON = localStorage.getItem('artWorks');
 const artWorks = artWorksJSON ? JSON.parse(artWorksJSON) : null;

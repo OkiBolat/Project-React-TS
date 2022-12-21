@@ -4,7 +4,7 @@ import { ArtWork } from '../../../assets/types/artWork';
 import ArtInformation from './ArtInformation';
 import DecisionMaker from './DecisionMaker';
 import styles from './Examine.module.scss';
-import $artWorks, { addDecision } from './examineStore';
+import $artWorks, { addDecision } from './model';
 import usePagination from '../../../hooks/usePagination';
 
 interface IExamineProps {

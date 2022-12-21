@@ -5,7 +5,7 @@ import PagintationUtils from '../../../../utils/paginationUtils';
 import { ReactComponent as ApproveIcon } from '../../../../assets/icons/approve.svg';
 import { ReactComponent as RefuseIcon } from '../../../../assets/icons/refuse.svg';
 import styles from './DecisionMaker.module.scss';
-import { Decision } from '../../../../types/artWork';
+import { Decision } from '../../../../assets/types/artWork';
 import Modal from '../../../../components/Modal';
 import useModal from '../../../../hooks/useModal';
 
