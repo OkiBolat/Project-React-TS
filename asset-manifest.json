@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Project-React-TS/static/css/main.bc2fc463.css",
-    "main.js": "/Project-React-TS/static/js/main.10f9dfef.js",
+    "main.js": "/Project-React-TS/static/js/main.fc4cfca3.js",
     "static/media/logo.svg": "/Project-React-TS/static/media/logo.5121e59fe72b65279f0028fa2261bf58.svg",
     "static/media/view.png": "/Project-React-TS/static/media/view.c19b9e3590579a3ec888.png",
     "static/media/hide.png": "/Project-React-TS/static/media/hide.54b3107d160578572bcc.png",
@@ -11,10 +11,10 @@
     "static/media/close.svg": "/Project-React-TS/static/media/close.22e52a160896260597eb14d5975296e7.svg",
     "static/media/approve.svg": "/Project-React-TS/static/media/approve.6b9a149c960ee3a22d946d50b883c295.svg",
     "main.bc2fc463.css.map": "/Project-React-TS/static/css/main.bc2fc463.css.map",
-    "main.10f9dfef.js.map": "/Project-React-TS/static/js/main.10f9dfef.js.map"
+    "main.fc4cfca3.js.map": "/Project-React-TS/static/js/main.fc4cfca3.js.map"
   },
   "entrypoints": [
     "static/css/main.bc2fc463.css",
-    "static/js/main.10f9dfef.js"
+    "static/js/main.fc4cfca3.js"
   ]
 }
