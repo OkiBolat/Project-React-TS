@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import AuthPage from './pages/AuthPage';
 import MainPage from './pages/MainPage';
-import authData from './utils/authData.json'
+import authData from './utils/authData.json';
 import './App.scss';
 import { useStore } from 'effector-react';
 import { $loginState } from './pages/AuthPage/authStore';
@@ -11,15 +11,15 @@ import { $loginState } from './pages/AuthPage/authStore';
 function App() {
     const auth = useStore($loginState);
 
-    const [authenticated, setAuthenticated] = useState(false)
+    const [authenticated, setAuthenticated] = useState(false);
     useEffect(() => {
-        const token = auth?.token
+        const token = auth?.token;
         if (token === authData.token) {
-            setAuthenticated(true)
+            setAuthenticated(true);
         } else {
-            setAuthenticated(false)
+            setAuthenticated(false);
         }
-    }, [auth])
+    }, [auth]);
 
     return (
         <div className='App'>

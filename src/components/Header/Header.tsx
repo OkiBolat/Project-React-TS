@@ -15,8 +15,8 @@ const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
     const [activeItem, setActiveItem] = useState(0);
 
     const handleLogout = () => {
-        logout()
-    }
+        logout();
+    };
     return (
         <div className={styles.header}>
             <div className={styles.header_container}>
@@ -39,7 +39,7 @@ const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
                         ))}
                     </ul>
                 )}
-                <Button  onClick={handleLogout}>
+                <Button variant='primary' onClick={handleLogout}>
                     {isAuth ? 'Выйти' : 'Войти'}
                 </Button>
             </div>

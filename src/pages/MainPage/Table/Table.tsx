@@ -10,4 +10,3 @@ const Table: React.FC<ITableProps> = (props) => {
 };
 
 export default Table;
-

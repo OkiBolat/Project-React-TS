@@ -24,9 +24,8 @@ const Auth: React.FC<IAuthProps> = ({
     formValues,
     onAuth,
     togglePasswordVisibility,
-    isPasswordVisible
+    isPasswordVisible,
 }) => {
-
     return (
         <div className={styles.auth}>
             <Form onSubmit={onAuth}>
@@ -51,9 +50,9 @@ const Auth: React.FC<IAuthProps> = ({
                 {/* <p className={styles.auth_submit_error}>{submitError && submitError}</p> */}
                 <p className={styles.auth_forgot_link}>Забыли пароль?</p>
                 <Button
-                    type="submit"
+                    variant='secondary'
+                    type='submit'
                     className={styles.additional_btn_class}
-                    primary={false}
                     onClick={(e) => onAuth(e)}
                 >
                     Войти
