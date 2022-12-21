@@ -25,14 +25,17 @@ function App() {
     return (
         <div className='App'>
             <Header isAuth={authenticated} />
-            {/* <Routes>
-                <Route path='/' element= */}
-                {authenticated ? <MainPage /> : <AuthPage />} 
-                {/* /> */}
-                {/* <Route path='/main' element={<MainPage />} />
-                <Route path='/auth' element={<AuthPage />} /> */}
-            {/* </Routes> */}
-        </div>
+             <Routes>
+                <Route path='/' element={authenticated ? <MainPage /> : <AuthPage />} />
+                <Route path='/main' element={<MainPage />} />
+                <Route path='/auth' element={<AuthPage />} />
+                {/* <Route path='/examination' element={<ExaminePage />} />
+                <Route path='/users' element={<UsersPage />} />
+                <Route path='/managers' element={<ManagersPage />} />
+                <Route path='/questions' element={<QuestionsPage />} /> */}
+            </Routes> 
+
+        </div >
     );
 }
 

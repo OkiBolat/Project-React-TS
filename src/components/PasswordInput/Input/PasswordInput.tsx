@@ -16,14 +16,14 @@ const PasswordInput: React.FunctionComponent<Props> = ({
     value,
     onChange,
     placeholder,
-    name,
+    name="password",
     error,
     label,
 }) => {
 
     const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(true);
     const togglePasswordVisibility = () => setIsPasswordVisible((prev) => !prev);
-    
+
     return (
         <div className={styles.inputValidate}>
             <div className={styles.inputValidate_label}>

@@ -32,12 +32,14 @@ const AuthForm: React.FC<IAuthProps> = ({
                     error={errors.email}
                     value={formValues.email}
                     onChange={onChangeInputs}
+                    name="email"
                 />
                 <PasswordInput
                     label='Пароль'
                     error={errors.password}
                     value={formValues.password}
                     onChange={onChangeInputs}
+                    name="password"
                 />
                 <p className={styles.auth_submit_error}>{submitError && submitError}</p>
                 <p className={styles.auth_forgot_link}>Забыли пароль?</p>

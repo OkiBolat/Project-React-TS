@@ -20,6 +20,7 @@ const AuthPage: React.FC<IAuthPageProps> = () => {
 
     //Обработчик инпутов
     const onChangeInputs = (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log()
         const { name, value } = event.target;
         setFormValues({
             ...formValues,

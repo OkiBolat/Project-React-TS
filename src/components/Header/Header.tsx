@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
 import { logout } from '../../screens/AuthPage/model';
 import Button from '../Button';
@@ -9,7 +10,12 @@ interface IHeaderProps {
     isAuth: boolean;
 }
 
-const list = ['Проверка', 'Пользователи', 'Менеджеры', 'Вопросы'];
+ const navRoutes = [
+      { path: '/examination', component: 'Проверка' },
+      { path: '/users', component: 'Пользователи' },
+      { path: '/managers', component: 'Менеджеры' },
+      { path: '/questions', component: 'Вопросы' },
+    ]
 
 const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
     const [activeItem, setActiveItem] = useState(0);
@@ -25,7 +31,7 @@ const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
                 </div>
                 {isAuth && (
                     <ul className={styles.header_list}>
-                        {list.map((item, index) => (
+                        {navRoutes.map((item, index) => (
                             <li
                                 key={index}
                                 onClick={() => setActiveItem(index)}
@@ -34,7 +40,7 @@ const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
                                     index === activeItem ? styles.active : '',
                                 ].join(' ')}
                             >
-                                {item}
+                                <Link to={item.path}>{item.component}</Link>
                             </li>
                         ))}
                     </ul>
