@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import Login from '../features/auth/Login';
+import Login from '../../features/auth/Login';
 
 const ExamineRouter = () => {
     return (

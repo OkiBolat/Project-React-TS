@@ -1,24 +1,14 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { logout } from '../../features/auth/Login/model';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { NavLink, redirect } from 'react-router-dom';
+import { $isAuth, logout } from '../../features/auth/Login/model';
 import logo from '../../assets/images/logo.svg';
 import Button from '../Button';
 import styles from './Header.module.scss';
+import { useStore } from 'effector-react';
+import { routes } from '../../libs/constants/routes';
 
-interface IHeaderProps {
-    children?: React.ReactNode;
-    isAuth: boolean;
-}
-
-const navRoutes = [
-    { path: '/examine', component: 'Проверка' },
-    { path: '/users', component: 'Пользователи' },
-    { path: '/managers', component: 'Менеджеры' },
-    { path: '/questions', component: 'Вопросы' },
-];
-
-const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
+const Header = () => {
+    const isAuth = useStore($isAuth);
     const [activeItem, setActiveItem] = useState(0);
 
     const handleLogout = () => {
@@ -32,12 +22,12 @@ const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
                         <img src={logo} alt='logo' />
                     </div>
                 </NavLink>
-                {isAuth && (
+                {!isAuth && (
                     <div className={styles.header_list}>
-                        {navRoutes.map((item, index) => (
+                        {routes.map((item, index) => (
                             <NavLink
                                 onClick={() => setActiveItem(index)}
-                                key={index}
+                                key={item.path}
                                 className={[
                                     styles.header_item,
                                     index === activeItem ? styles.active : '',
@@ -50,7 +40,7 @@ const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
                     </div>
                 )}
                 <Button variant='primary' onClick={handleLogout}>
-                    {isAuth ? 'Выйти' : 'Войти'}
+                    {!isAuth ? 'Выйти' : 'Войти'}
                 </Button>
             </div>
         </div>

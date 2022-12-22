@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import Examine from '../features/main/Examine';
+import Examine from '../../features/main/Examine';
 
 const MainRouter = () => {
     return (

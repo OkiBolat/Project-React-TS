@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Input from '../../Input';
 import styles from './AuthForm.module.scss';
-import Button from '../Button';
-import Input from '../Input';
-import { FormValues } from '../../libs/types/auth';
-import PasswordInput from '../PasswordInput';
+import Button from '../../Button';
+import PasswordInput from '../../PasswordInput';
+import { FormValues } from '../../../libs/types/auth';
+import { setFormValues } from '../../../features/auth/Login/model';
 
 interface IFormProps {
     children?: React.ReactNode;
@@ -11,16 +12,10 @@ interface IFormProps {
     submitError?: string | boolean;
     formValues: FormValues;
     errors: FormValues;
-    onChangeInputs: (e: any) => void;
+    onChangeInputs?: (e: any) => void;
 }
 
-const formForm: React.FC<IFormProps> = ({
-    onChangeInputs,
-    errors,
-    formValues,
-    onSubmit,
-    submitError,
-}) => {
+const AuthForm: React.FC<IFormProps> = ({ errors, formValues, onSubmit, submitError }) => {
     return (
         <div className={styles.form}>
             <form className={styles.form_wrp} onSubmit={onSubmit}>
@@ -29,14 +24,14 @@ const formForm: React.FC<IFormProps> = ({
                     label='E-mail'
                     error={errors.email}
                     value={formValues.email}
-                    onChange={onChangeInputs}
+                    onChange={setFormValues}
                     name='email'
                 />
                 <PasswordInput
                     label='Пароль'
                     error={errors.password}
                     value={formValues.password}
-                    onChange={onChangeInputs}
+                    onChange={setFormValues}
                     name='password'
                 />
                 <p className={styles.form_submit_error}>{submitError && submitError}</p>
@@ -58,4 +53,4 @@ const formForm: React.FC<IFormProps> = ({
     );
 };
 
-export default formForm;
+export default AuthForm;

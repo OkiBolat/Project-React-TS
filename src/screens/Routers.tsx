@@ -1,9 +1,9 @@
-import ExamineRouter from './ExamineRouter';
-import MainRouter from './MainRouter';
-import ManagersRouter from './ManagersRouter';
-import QuestionsRouter from './QuestionsRouter';
-import UsersRouter from './UsersRouter';
-import AuthRouter from './AuthRouter';
+import ExamineRouter from './MainRoutes/ExamineRouter';
+import MainRouter from './MainRoutes/MainRouter';
+import ManagersRouter from './MainRoutes/ManagersRouter';
+import QuestionsRouter from './MainRoutes/QuestionsRouter';
+import UsersRouter from './MainRoutes/UsersRouter';
+import AuthRouter from './LoginRoutes/AuthRouter';
 
 function Routers() {
     return (
