@@ -20,7 +20,7 @@ $artWorks.on(addDecision, (artWorks, payload) => {
 
     if (index === undefined) return;
 
-    const copy = JSON.parse(JSON.stringify(artWorks));
+    const copy = [...artWorks];
     copy[index] = { ...copy[index], decision: payload.decision };
 
     return copy;
