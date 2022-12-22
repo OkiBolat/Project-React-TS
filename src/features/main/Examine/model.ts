@@ -18,13 +18,12 @@ export const addDecision = createEvent<AddDecisionProps>();
 $artWorks.on(addDecision, (artWorks, payload) => {
     const index = artWorks.findIndex((artWork) => artWork.id === payload.id);
 
-    if (typeof index !== 'undefined') {
-        const copy = JSON.parse(JSON.stringify(artWorks));
-        copy[index] = { ...copy[index], decision: payload.decision };
-        return copy;
-    }
+    if (index === undefined) return;
 
-    return artWorks;
+    const copy = JSON.parse(JSON.stringify(artWorks));
+    copy[index] = { ...copy[index], decision: payload.decision };
+
+    return copy;
 });
 
 $artWorks.watch((artWorks) => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import PagintationUtils from '../../libs/pagination';
 import styles from './Pagination.module.scss';
 
@@ -6,14 +7,14 @@ type PaginationProps = {
     currentIndex: number;
     visibleNumbers: number;
     arrayLength: number;
-    onMoveTo: (index: number) => void;
+    onPressNumber: (index: number) => void;
 };
 
 const Pagination: React.FC<PaginationProps> = ({
     currentIndex,
     visibleNumbers,
     arrayLength,
-    onMoveTo,
+    onPressNumber,
 }) => {
     return (
         <div className={styles.pagination_numbers}>
@@ -24,11 +25,11 @@ const Pagination: React.FC<PaginationProps> = ({
                     return (
                         <button
                             key={index}
-                            className={[
-                                isActive ? styles.active : '',
-                                isDots ? styles.dots : '',
-                            ].join(' ')}
-                            onClick={() => onMoveTo(isDots ? currentIndex : paginationNumber)}
+                            className={classNames({
+                                [styles.active]: isActive,
+                                [styles.isDots]: isDots,
+                            })}
+                            onClick={() => onPressNumber(isDots ? currentIndex : paginationNumber)}
                         >
                             {isDots ? paginationNumber : paginationNumber + 1}
                         </button>

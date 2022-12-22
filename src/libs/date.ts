@@ -6,6 +6,16 @@ namespace DateUtils {
             year: 'numeric',
         });
     };
+    export const getAge = (date: string) => {
+        const today = new Date();
+        const birthDate = new Date(date);
+        const age = today.getFullYear() - birthDate.getFullYear();
+        const months = today.getMonth() - birthDate.getMonth();
+
+        if (months < 0 || (months === 0 && today.getDate() < birthDate.getDate())) return age - 1;
+
+        return age;
+    };
 }
 
 export default DateUtils;

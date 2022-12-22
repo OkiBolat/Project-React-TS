@@ -18,7 +18,7 @@ type DecisionMakerProps = {
     currentArtIndex: number;
     onNext: () => void;
     onPrev: () => void;
-    onMoveTo: (index: number) => void;
+    onPressPaginationNumber: (index: number) => void;
 };
 
 const DecisionMaker: React.FC<DecisionMakerProps> = ({
@@ -27,7 +27,7 @@ const DecisionMaker: React.FC<DecisionMakerProps> = ({
     currentArtIndex,
     onNext,
     onPrev,
-    onMoveTo,
+    onPressPaginationNumber,
 }) => {
     const modal = useModal();
 
@@ -71,7 +71,7 @@ const DecisionMaker: React.FC<DecisionMakerProps> = ({
                 arrayLength={artsLength}
                 currentIndex={currentArtIndex}
                 visibleNumbers={5}
-                onMoveTo={onMoveTo}
+                onPressNumber={onPressPaginationNumber}
             />
         </div>
     );

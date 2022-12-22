@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useStore } from 'effector-react';
 import { ArtWork } from '../../../libs/types/artWork';
 import ArtInformation from './ArtInformation';
 import DecisionMaker from './DecisionMaker';
 import styles from './Examine.module.scss';
-import $artWorks, { addDecision } from './model';
+import $artWorks from './model';
 import usePagination from '../../../hooks/usePagination';
 
 type ExamineProps = {
@@ -24,7 +24,7 @@ const Examine: React.FC<ExamineProps> = (props) => {
                 currentArtIndex={currentIndex}
                 onNext={moveNext}
                 onPrev={movePrev}
-                onMoveTo={moveTo}
+                onPressPaginationNumber={moveTo}
             />
         </div>
     );
