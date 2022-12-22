@@ -1,4 +1,4 @@
-import { LoginData, LoginResult } from '../assets/types/auth';
+import { LoginData, LoginResult } from '../libs/types/auth';
 
 export async function login(data: LoginData): Promise<LoginResult> {
     const response = await fetch('/api/login', {
