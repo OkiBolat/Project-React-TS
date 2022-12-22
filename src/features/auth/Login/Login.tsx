@@ -1,38 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useStore } from 'effector-react';
-import {
-    $formValues,
-    $errors,
-    $submitError,
-    setFormValues,
-    setErrors,
-    setSubmitError,
-    login,
-} from './model';
-import { formValidate } from '../../../libs/validator';
-import styles from './Login.module.scss';
-import { FormValues } from '../../../libs/types/auth';
+import { $errors, $formValues, $submitError, setFormValues } from './models/form-model';
+import { login } from './models/auth-model';
 import PasswordInput from '../../../ui/PasswordInput';
+import styles from './Login.module.scss';
 import Input from '../../../ui/Input';
 import Button from '../../../ui/Button';
+
 
 const Login = () => {
     const formValues = useStore($formValues);
     const errors = useStore($errors);
     const submitError = useStore($submitError);
 
-    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        if (formValidate(formValues, setErrors)) {
-            const { email, password } = formValues;
-            login({ email, password });
-        }
-    };
     return (
         <div className={styles.authPage}>
             <div className={styles.authPage_container}>
                 <div className={styles.form}>
-                    <form className={styles.form_wrp} onSubmit={onSubmit}>
+                    <form className={styles.form_wrp} onSubmit={login}>
                         <div className={styles.form_title}>Вход</div>
                         <Input
                             label='E-mail'
@@ -54,7 +39,7 @@ const Login = () => {
                             variant='secondary'
                             type='submit'
                             className={styles.additional_btn_class}
-                            onClick={(e) => onSubmit(e)}
+                            onClick={login}
                         >
                             Войти
                         </Button>

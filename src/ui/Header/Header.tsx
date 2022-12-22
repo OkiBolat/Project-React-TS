@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, redirect } from 'react-router-dom';
-import { $isAuth, logout } from '../../features/auth/Login/model';
+import { $isAuth, logout } from '../../features/auth/Login/models/auth-model';
 import logo from '../../assets/images/logo.svg';
 import Button from '../Button';
 import styles from './Header.module.scss';
@@ -22,7 +22,7 @@ const Header = () => {
                         <img src={logo} alt='logo' />
                     </div>
                 </NavLink>
-                {!isAuth && (
+                {isAuth && (
                     <div className={styles.header_list}>
                         {routes.map((item, index) => (
                             <NavLink
@@ -40,7 +40,7 @@ const Header = () => {
                     </div>
                 )}
                 <Button variant='primary' onClick={handleLogout}>
-                    {!isAuth ? 'Выйти' : 'Войти'}
+                    {isAuth ? 'Выйти' : 'Войти'}
                 </Button>
             </div>
         </div>
