@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useStore } from 'effector-react';
-import { $isAuth, checkIsAuth } from './features/auth/Login/models/authModel';
+import { $isAuth } from './features/auth/Login/models/authModel';
 import { useNavigate } from 'react-router-dom';
+import { RoutesEnum } from './libs/types/routes.enum';
 import Header from './ui/Header';
 import AuthRouter from './screens/LoginRoutes/AuthRouter';
 import Routers from './screens/Routers';
 import './App.scss';
-import { RoutesEnum } from './libs/types/routes.enum';
 
 function App() {
     const isAuth = useStore($isAuth);
