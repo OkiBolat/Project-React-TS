@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 import { useStore } from 'effector-react';
-import { $errors, $formValues, $submitError, setFormValues } from './models/form-model';
-import { $isAuth, login } from './models/auth-model';
+import { $errors, $formValues, $submitError, setFormValues } from './models/formModel';
+import { $isAuth, login } from './models/authModel';
 import PasswordInput from '../../../ui/PasswordInput';
 import styles from './Login.module.scss';
 import Input from '../../../ui/Input';
 import Button from '../../../ui/Button';
-
-
 
 const Login = () => {
     const formValues = useStore($formValues);
