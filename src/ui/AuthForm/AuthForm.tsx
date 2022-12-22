@@ -6,7 +6,7 @@ import { FormValues } from '../../libs/types/auth';
 import PasswordInput from '../PasswordInput';
 
 
-interface IformProps {
+interface IFormProps {
     children?: React.ReactNode;
     onSubmit: (e: any) => void;
     submitError?: string | boolean;
@@ -15,7 +15,7 @@ interface IformProps {
     onChangeInputs: (e: any) => void;
 }
 
-const formForm: React.FC<IformProps> = ({
+const formForm: React.FC<IFormProps> = ({
     onChangeInputs,
     errors,
     formValues,

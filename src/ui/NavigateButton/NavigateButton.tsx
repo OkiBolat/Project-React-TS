@@ -10,7 +10,7 @@ type NavigateButtonProps = {
 
 const NavigateButton: React.FC<NavigateButtonProps> = ({ onClick, type }) => (
     <button onClick={onClick} type='button' className={styles.navigate_button}>
-        {/* <Arrow className={classNames(styles.arrow, { [styles.next]: type === 'next' })} /> */}
+        <Arrow className={classNames(styles.arrow, { [styles.next]: type === 'next' })} />
     </button>
 );
 

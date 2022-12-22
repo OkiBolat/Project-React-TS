@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './ui/Header';
 import authData from './mock/MOCK_AUTH_DATA.json';
 import { useStore } from 'effector-react';
-import { $loginState } from './features/auth/Login/model';
+import { $loginState, checkTokenFx } from './features/auth/Login/model';
 import MainRouter from './screens/MainRouter';
 import AuthRouter from './screens/AuthRouter';
 import UsersRouter from './screens/UsersRouter';
@@ -16,22 +16,23 @@ import { useNavigate } from 'react-router-dom';
 function App() {
     const navigate = useNavigate()
     const auth = useStore($loginState);
-    console.log(auth?.token)
+    console.log(auth);
+    const [isAuth, setIsAuth] = useState<boolean>(false)
 
-
-    const [authenticated, setAuthenticated] = useState(false);
     useEffect(() => {
-        const token = auth?.token;
-        if (token !== authData.token) {
+        checkTokenFx()
+        if (!auth?.isValid) {
+            setIsAuth(false)
             navigate("/auth");
-        }else {
+        } else {
+            setIsAuth(true)
             navigate('/')
         }
     }, [auth]);
 
     return (
         <div className='App'>
-            <Header isAuth={true} />
+            <Header isAuth={isAuth} />
             <AuthRouter />
             <MainRouter />
             <UsersRouter />

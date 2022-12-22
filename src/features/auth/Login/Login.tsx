@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useStore } from 'effector-react';
-import { login, $loginState } from './model';
+import { loginFx, $loginState } from './model';
 import { FormValues } from '../../../libs/types/auth';
 import { formValidate } from '../../../libs/validator';
 import styles from './Login.module.scss';
@@ -32,7 +32,7 @@ const Login: React.FC<LoginProps> = () => {
         event.preventDefault();
         if (formValidate(formValues, setErrors)) {
             const { email, password } = formValues;
-            login({ email, password });
+            loginFx({ email, password })
         }
     };
 

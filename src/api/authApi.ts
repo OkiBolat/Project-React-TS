@@ -1,13 +1,39 @@
-import { LoginData, LoginResult } from '../libs/types/auth';
+import authData from '../mock/MOCK_AUTH_DATA.json'
 
-export async function login(data: LoginData): Promise<LoginResult> {
-    const response = await fetch('/api/login', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    });
-    const result = await response.json();
-    return result;
-}
+export default {
+    login(email: string, password: string): Promise<any> {
+        return new Promise((resolve, reject) => {
+            // Имитируем задержку запроса
+            setTimeout(() => {
+                if (email === authData.email && password === authData.password) {
+                    resolve({
+                        data: {
+                            token: authData.token,
+                            userId: authData.userId,
+                        },
+                    });
+                } else {
+                    reject(new Error('Неверный логин или пароль'));
+                }
+            }, 0);
+        });
+    },
+    checkToken(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            // Имитируем задержку запроса
+            setTimeout(() => {
+                if (localStorage.getItem('token') === authData.token) {
+                    resolve({
+                        data: {
+                            token: authData.token,
+                            userId: authData.userId,
+                            isValid: true,
+                        },
+                    });
+                } else {
+                    reject(new Error('Неверный токен'));
+                }
+            }, 1000);
+        });
+    },
+};
