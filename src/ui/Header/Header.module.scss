@@ -43,12 +43,16 @@
     // &_logo {}
 
     &_item {
+        text-decoration: none;
         color: #c9e8e4;
         font-style: normal;
         font-weight: 500;
         font-size: 16px;
         transition: 0.2s;
         cursor: pointer;
+        &:link {
+            text-decoration: none;
+        }
     }
     &_item {
         color: #c9e8e4;

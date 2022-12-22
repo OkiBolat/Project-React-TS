@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import styles from './Input.module.scss';
+import view from '../../assets/images/view.png';
+import hide from '../../assets/images/hide.png';
+import styles from './PasswordInput.module.scss';
 
 interface Props {
     value: string;
@@ -8,39 +10,41 @@ interface Props {
     name?: string;
     label?: string;
     error?: string;
-    icon?: any;
-    type?: string;
-    onIconChange?: () => void;
 }
 
-const Input: React.FunctionComponent<Props> = ({
-    onIconChange,
-    icon = null,
+const PasswordInput: React.FunctionComponent<Props> = ({
     value,
     onChange,
     placeholder,
-    name = 'name',
+    name = 'password',
     error,
     label,
-    type,
 }) => {
+    const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(true);
+    const togglePasswordVisibility = () => setIsPasswordVisible((prev) => !prev);
+
     return (
         <div className={styles.inputValidate}>
             <div className={styles.inputValidate_label}>
-                <label htmlFor={name}>{label}:</label>
+                <label htmlFor='password'>{label}:</label>
             </div>
             <div className={styles.input_wrp}>
                 <input
-                    id={name}
+                    id='password'
                     name={name}
                     className={styles.input}
-                    type={type}
+                    type={isPasswordVisible ? 'password' : 'text'}
                     value={value}
                     onChange={onChange}
                     placeholder={placeholder}
                 />
                 {value && (
-                    <img className={styles.input_icon} onClick={onIconChange} src={icon} alt='' />
+                    <img
+                        className={styles.input_icon}
+                        onClick={togglePasswordVisibility}
+                        src={isPasswordVisible ? view : hide}
+                        alt=''
+                    />
                 )}
             </div>
             <span className={styles.inputValidate_error}>{error && error}</span>
@@ -48,4 +52,4 @@ const Input: React.FunctionComponent<Props> = ({
     );
 };
 
-export default Input;
+export default PasswordInput;
