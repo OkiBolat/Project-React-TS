@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
+import { NavLink, redirect } from 'react-router-dom';
+import { $isAuth, logout } from '../../features/auth/Login/models/auth-model';
 import logo from '../../assets/images/logo.svg';
-import { logout } from '../../features/auth/Login/model';
 import Button from '../Button';
 import styles from './Header.module.scss';
+import { useStore } from 'effector-react';
+import { routes } from '../../libs/constants/routes';
 
-type HeaderProps = {
-    children?: React.ReactNode;
-    isAuth: boolean;
-};
-
-const list = ['Проверка', 'Пользователи', 'Менеджеры', 'Вопросы'];
-
-const Header: React.FC<HeaderProps> = ({ isAuth = true, children }) => {
+const Header = () => {
+    const isAuth = useStore($isAuth);
     const [activeItem, setActiveItem] = useState(0);
 
     const handleLogout = () => {
@@ -20,24 +17,27 @@ const Header: React.FC<HeaderProps> = ({ isAuth = true, children }) => {
     return (
         <div className={styles.header}>
             <div className={styles.header_container}>
-                <div className={styles.header_logo}>
-                    <img src={logo} alt='logo' />
-                </div>
+                <NavLink to={'/'}>
+                    <div className={styles.header_logo}>
+                        <img src={logo} alt='logo' />
+                    </div>
+                </NavLink>
                 {isAuth && (
-                    <ul className={styles.header_list}>
-                        {list.map((item, index) => (
-                            <li
-                                key={index}
+                    <div className={styles.header_list}>
+                        {routes.map((item, index) => (
+                            <NavLink
                                 onClick={() => setActiveItem(index)}
+                                key={item.path}
                                 className={[
                                     styles.header_item,
                                     index === activeItem ? styles.active : '',
                                 ].join(' ')}
+                                to={item.path}
                             >
-                                {item}
-                            </li>
+                                {item.component}
+                            </NavLink>
                         ))}
-                    </ul>
+                    </div>
                 )}
                 <Button variant='primary' onClick={handleLogout}>
                     {isAuth ? 'Выйти' : 'Войти'}
