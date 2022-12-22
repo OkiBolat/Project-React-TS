@@ -10,12 +10,13 @@ export default {
                         data: {
                             token: authData.token,
                             userId: authData.userId,
+                            isValid: true,
                         },
                     });
                 } else {
                     reject(new Error('Неверный логин или пароль'));
                 }
-            }, 0);
+            }, 1000);
         });
     },
     checkToken(): Promise<any> {

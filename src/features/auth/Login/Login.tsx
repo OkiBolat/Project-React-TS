@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useStore } from 'effector-react';
-import { loginFx, $loginState } from './model';
-import { FormValues } from '../../../libs/types/auth';
+import {
+    loginFx,
+    $loginState,
+    $formValues,
+    $errors,
+    $submitError,
+    setFormValues,
+    setErrors,
+    setSubmitError,
+} from './model';
 import { formValidate } from '../../../libs/validator';
 import styles from './Login.module.scss';
 import AuthForm from '../../../ui/AuthForm';
@@ -12,11 +20,9 @@ type LoginProps = {
 
 const Login: React.FC<LoginProps> = () => {
     const auth = useStore($loginState);
-    const [submitError, setSubmitError] = useState<string | boolean>('');
-
-    // Данные формы
-    const [formValues, setFormValues] = useState<FormValues>({ email: '', password: '' });
-    const [errors, setErrors] = useState<FormValues>({ email: '', password: '' });
+    const formValues = useStore($formValues);
+    const errors = useStore($errors);
+    const submitError = useStore($submitError);
 
     //Обработчик инпутов
     const onChangeInputs = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,18 +35,19 @@ const Login: React.FC<LoginProps> = () => {
 
     // Submit
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        console.log(errors);
         event.preventDefault();
         if (formValidate(formValues, setErrors)) {
             const { email, password } = formValues;
             loginFx({ email, password });
         }
     };
-
     useEffect(() => {
+        console.log(submitError);
         if (auth?.error) {
             setSubmitError(auth.error);
         }
-    }, [auth]);
+    }, []);
 
     return (
         <div className={styles.authPage}>
