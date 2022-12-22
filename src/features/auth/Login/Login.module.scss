@@ -1,0 +1,91 @@
+.authPage {
+    height: 100vh;
+    background: #ededed;
+    &_container {
+        height: 90%;
+        max-width: 1100px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 48px 68px;
+    width: 456px;
+    background: #ffffff;
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+
+    &_wrp {
+        width: 100%;
+    }
+
+    &_title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 136.02%;
+        color: #303535;
+        margin-bottom: 27px;
+    }
+
+    &_submit_error {
+        min-height: 19px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 152.02%;
+        color: #f76161;
+    }
+
+    &_forgot_link {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #616868;
+        flex: none;
+        flex-grow: 0;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        margin-top: 19px;
+        margin-bottom: 19px;
+    }
+
+    &_signUp_block {
+        display: flex;
+        margin-top: 26px;
+    }
+
+    &_signUp_text {
+        font-weight: 500;
+        font-size: 14px;
+        color: #303535;
+    }
+
+    &_signUp_link {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #347b81;
+        border: none;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+}
+
+.additional_btn_class {
+    width: 100%;
+    background: linear-gradient(267.49deg, #4b9da4 11.08%, #46949b 72.91%);
+}

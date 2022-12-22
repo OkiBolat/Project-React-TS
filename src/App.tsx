@@ -1,30 +1,20 @@
-import React, { useEffect, useState } from 'react';
-
-import Header from './components/Header';
-import AuthPage from './pages/AuthPage';
-import MainPage from './pages/MainPage';
-import authData from './utils/authData.json';
-import './App.scss';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useStore } from 'effector-react';
-import { $loginState } from './pages/AuthPage/model';
+import { $isAuth, checkIsAuth } from './features/auth/Login/models/auth-model';
+import Header from './ui/Header';
+import AuthRouter from './screens/LoginRoutes/AuthRouter';
+import Routers from './screens/Routers';
+import './App.scss';
 
 function App() {
-    const auth = useStore($loginState);
-
-    const [authenticated, setAuthenticated] = useState(false);
-    useEffect(() => {
-        const token = auth?.token;
-        if (token === authData.token) {
-            setAuthenticated(true);
-        } else {
-            setAuthenticated(false);
-        }
-    }, [auth]);
-
+    const isAuth = useStore($isAuth);
+    checkIsAuth()
     return (
         <div className='App'>
-            <Header isAuth={authenticated} />
-            {authenticated ? <MainPage /> : <AuthPage />}
+            <Header />
+            {!isAuth ?
+                <AuthRouter /> :
+                <Routers />}
         </div>
     );
 }
