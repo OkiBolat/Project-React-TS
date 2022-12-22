@@ -16,22 +16,21 @@ const PasswordInput: React.FunctionComponent<Props> = ({
     value,
     onChange,
     placeholder,
-    name="password",
+    name = 'password',
     error,
     label,
 }) => {
-
     const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(true);
     const togglePasswordVisibility = () => setIsPasswordVisible((prev) => !prev);
 
     return (
         <div className={styles.inputValidate}>
             <div className={styles.inputValidate_label}>
-                <label htmlFor="password">{label}:</label>
+                <label htmlFor='password'>{label}:</label>
             </div>
             <div className={styles.input_wrp}>
                 <input
-                    id="password"
+                    id='password'
                     name={name}
                     className={styles.input}
                     type={isPasswordVisible ? 'password' : 'text'}
@@ -40,7 +39,12 @@ const PasswordInput: React.FunctionComponent<Props> = ({
                     placeholder={placeholder}
                 />
                 {value && (
-                    <img className={styles.input_icon} onClick={togglePasswordVisibility} src={isPasswordVisible ? view : hide} alt='' />
+                    <img
+                        className={styles.input_icon}
+                        onClick={togglePasswordVisibility}
+                        src={isPasswordVisible ? view : hide}
+                        alt=''
+                    />
                 )}
             </div>
             <span className={styles.inputValidate_error}>{error && error}</span>

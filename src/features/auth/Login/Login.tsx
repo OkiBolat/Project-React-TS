@@ -28,11 +28,11 @@ const Login: React.FC<LoginProps> = () => {
     };
 
     // Submit
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (formValidate(formValues, setErrors)) {
             const { email, password } = formValues;
-            loginFx({ email, password })
+            loginFx({ email, password });
         }
     };
 
@@ -50,7 +50,7 @@ const Login: React.FC<LoginProps> = () => {
                     submitError={submitError}
                     formValues={formValues}
                     onChangeInputs={onChangeInputs}
-                    onSubmit={handleSubmit}
+                    onSubmit={onSubmit}
                 />
             </div>
         </div>

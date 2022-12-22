@@ -5,7 +5,6 @@ import Input from '../Input';
 import { FormValues } from '../../libs/types/auth';
 import PasswordInput from '../PasswordInput';
 
-
 interface IFormProps {
     children?: React.ReactNode;
     onSubmit: (e: any) => void;
@@ -20,7 +19,7 @@ const formForm: React.FC<IFormProps> = ({
     errors,
     formValues,
     onSubmit,
-    submitError
+    submitError,
 }) => {
     return (
         <div className={styles.form}>
@@ -31,14 +30,14 @@ const formForm: React.FC<IFormProps> = ({
                     error={errors.email}
                     value={formValues.email}
                     onChange={onChangeInputs}
-                    name="email"
+                    name='email'
                 />
                 <PasswordInput
                     label='Пароль'
                     error={errors.password}
                     value={formValues.password}
                     onChange={onChangeInputs}
-                    name="password"
+                    name='password'
                 />
                 <p className={styles.form_submit_error}>{submitError && submitError}</p>
                 <p className={styles.form_forgot_link}>Забыли пароль?</p>

@@ -13,7 +13,7 @@ export const loginFx = createEffect<LoginData, LoginResult>({
             const { token } = response.data;
             localStorage.setItem('token', token);
             console.log(response);
-            return {...response.data};
+            return { ...response.data };
         });
     },
 });
@@ -21,14 +21,12 @@ export const loginFx = createEffect<LoginData, LoginResult>({
 export const checkTokenFx = createEffect({
     handler: () => {
         return authApi.checkToken().then((response) => {
-            return response.data
-
-        })
-    }
+            return response.data;
+        });
+    },
 });
 
 $loginState
     .on(loginFx.done, (_, { result }) => result)
     .on(checkTokenFx.done, (_, { result }) => result)
     .on(logout, () => null);
-

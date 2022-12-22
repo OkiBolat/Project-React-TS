@@ -1,4 +1,4 @@
-import authData from '../mock/MOCK_AUTH_DATA.json'
+import authData from '../mock/MOCK_AUTH_DATA.json';
 
 export default {
     login(email: string, password: string): Promise<any> {

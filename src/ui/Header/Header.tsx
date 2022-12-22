@@ -16,7 +16,7 @@ const navRoutes = [
     { path: '/users', component: 'Пользователи' },
     { path: '/managers', component: 'Менеджеры' },
     { path: '/questions', component: 'Вопросы' },
-]
+];
 
 const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
     const [activeItem, setActiveItem] = useState(0);
@@ -43,7 +43,8 @@ const Header: React.FC<IHeaderProps> = ({ isAuth = true, children }) => {
                                     index === activeItem ? styles.active : '',
                                 ].join(' ')}
                                 to={item.path}
-                            >{item.component}
+                            >
+                                {item.component}
                             </NavLink>
                         ))}
                     </div>

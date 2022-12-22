@@ -19,7 +19,7 @@ const Input: React.FunctionComponent<Props> = ({
     value,
     onChange,
     placeholder,
-    name = "name",
+    name = 'name',
     error,
     label,
     type,
