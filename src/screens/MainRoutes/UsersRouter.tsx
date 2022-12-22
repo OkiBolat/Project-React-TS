@@ -1,9 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
+import Examine from '../../features/main/Examine';
 
 const UsersRouter = () => {
     return (
         <Routes>
-            <Route path={'/users'} element={<div>UsersPage</div>} />;
+            <Route path={'/users'} element={<Examine/>} />;
         </Routes>
     );
 };

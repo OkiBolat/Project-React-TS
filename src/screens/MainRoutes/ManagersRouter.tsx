@@ -1,9 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
+import Examine from '../../features/main/Examine';
 
 const ManagersRouter = () => {
     return (
         <Routes>
-            <Route path={'/managers'} element={<div>ManagersPage</div>} />;
+            <Route path={'/managers'} element={<Examine/>} />;
         </Routes>
     );
 };

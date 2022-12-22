@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import Login from '../../features/auth/Login';
+import Examine from '../../features/main/Examine';
 
 const ExamineRouter = () => {
     return (
         <Routes>
-            <Route path={'/examine'} element={<div>Examine</div>} />;
+            <Route path={'/examine'} element={<Examine/>} />;
         </Routes>
     );
 };

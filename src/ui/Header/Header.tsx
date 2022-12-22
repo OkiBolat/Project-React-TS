@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
-import { NavLink, redirect } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { $isAuth, logout } from '../../features/auth/Login/models/auth-model';
+import { useStore } from 'effector-react';
+import { routes } from '../../libs/constants/routes';
 import logo from '../../assets/images/logo.svg';
 import Button from '../Button';
 import styles from './Header.module.scss';
-import { useStore } from 'effector-react';
-import { routes } from '../../libs/constants/routes';
+
 
 const Header = () => {
+    const currentPath = useLocation().pathname;
     const isAuth = useStore($isAuth);
-    const [activeItem, setActiveItem] = useState(0);
+    const navigate = useNavigate()
 
-    const handleLogout = () => {
+    const onLogout = () => {
+        navigate('/auth')
         logout();
     };
     return (
@@ -24,13 +27,12 @@ const Header = () => {
                 </NavLink>
                 {isAuth && (
                     <div className={styles.header_list}>
-                        {routes.map((item, index) => (
+                        {routes.map((item) => (
                             <NavLink
-                                onClick={() => setActiveItem(index)}
                                 key={item.path}
                                 className={[
                                     styles.header_item,
-                                    index === activeItem ? styles.active : '',
+                                    currentPath === item.path ? styles.active : '',
                                 ].join(' ')}
                                 to={item.path}
                             >
@@ -39,7 +41,7 @@ const Header = () => {
                         ))}
                     </div>
                 )}
-                <Button variant='primary' onClick={handleLogout}>
+                <Button variant='primary' onClick={onLogout}>
                     {isAuth ? 'Выйти' : 'Войти'}
                 </Button>
             </div>
