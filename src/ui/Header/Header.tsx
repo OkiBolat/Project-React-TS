@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { $isAuth, logout } from '../../features/auth/Login/models/authModel';
 import { useStore } from 'effector-react';
-import { navLinks } from '../../libs/constants/routes';
+import { NAV_LINKS } from '../../libs/constants/routes';
 import logo from '../../assets/images/logo.svg';
 import Button from '../Button';
 import styles from './Header.module.scss';
-import { RoutesEnum } from '../../libs/types/routes.enum';
+import { RouteName } from '../../libs/types/routes.enum';
 import classNames from 'classnames';
 
 const Header = () => {
@@ -21,14 +21,14 @@ const Header = () => {
     return (
         <div className={styles.header}>
             <div className={styles.header_container}>
-                <NavLink to={RoutesEnum.Main}>
+                <NavLink to={RouteName.Main}>
                     <div className={styles.header_logo}>
                         <img src={logo} alt='logo' />
                     </div>
                 </NavLink>
                 {isAuth && (
                     <div className={styles.header_list}>
-                        {navLinks.map((navLink) => (
+                        {NAV_LINKS.map((navLink) => (
                             <NavLink
                                 key={navLink.path}
                                 className={classNames(styles.header_item, {

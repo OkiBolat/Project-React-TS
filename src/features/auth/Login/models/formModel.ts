@@ -7,18 +7,23 @@ export const $submitError = createStore<string | boolean>('');
 
 export const setFormValues = createEvent<React.ChangeEvent<HTMLFormElement>>();
 export const clearFormValues = createEvent();
-export const setErrors = createEvent<FormValues>();
-export const setSubmitError = createEvent<string | boolean>();
+export const setFormErrors = createEvent<FormValues>();
+export const setFormSubmitError = createEvent<string | boolean>();
 
-$errors.on(setErrors, (_, payload) => payload);
-$submitError.on(setSubmitError, (state, payload) => payload);
+$errors.on(setFormErrors, (_, payload) => payload);
+$submitError.on(setFormSubmitError, (state, payload) => payload);
 
 $formValues
-    .on(setFormValues, (state, payload) => {
-        const { name, value } = payload.target;
-        return {
-            ...state,
-            [name]: value,
-        };
-    })
-    .on(clearFormValues, () => ({ email: '', password: '' }));
+  .on(setFormValues, (state, payload) => {
+    const { name, value } = payload.target;
+    return {
+      ...state,
+      [name]: value,
+    };
+  })
+  .on(clearFormValues, () => ({ email: '', password: '' }));
+
+clearFormValues.watch(() => {
+  $errors.reset();
+  $submitError.reset();
+});

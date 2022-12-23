@@ -1,8 +1,8 @@
-import { RoutesEnum } from '../types/routes.enum';
+import { RouteName } from '../types/routes.enum';
 
-export const navLinks = [
-    { path: RoutesEnum.Questions, title: 'Проверка' },
-    { path: RoutesEnum.Users, title: 'Пользователи' },
-    { path: RoutesEnum.Managers, title: 'Менеджеры' },
-    { path: RoutesEnum.Questions, title: 'Вопросы' },
+export const NAV_LINKS = [
+    { path: RouteName.Questions, title: 'Проверка' },
+    { path: RouteName.Users, title: 'Пользователи' },
+    { path: RouteName.Managers, title: 'Менеджеры' },
+    { path: RouteName.Questions, title: 'Вопросы' },
 ];

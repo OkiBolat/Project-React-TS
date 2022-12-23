@@ -1,6 +1,6 @@
 import { FormValues } from './types/auth';
 
-export const formValidate = (formValues: FormValues, setErrors: any): boolean => {
+export const formValidate = (formValues: FormValues): FormValues => {
     const newErrors: FormValues = {
         name: '',
         email: '',
@@ -17,6 +17,5 @@ export const formValidate = (formValues: FormValues, setErrors: any): boolean =>
         newErrors.password = 'Пароль обязателен';
     }
 
-    setErrors(newErrors);
-    return Object.values(newErrors).every((error) => !error);
+    return newErrors;
 };

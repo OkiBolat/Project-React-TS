@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useStore } from 'effector-react';
 import { $isAuth } from './features/auth/Login/models/authModel';
 import { useNavigate } from 'react-router-dom';
-import { RoutesEnum } from './libs/types/routes.enum';
+import { RouteName } from './libs/types/routes.enum';
 import Header from './ui/Header';
 import AuthRouter from './screens/LoginRoutes/AuthRouter';
 import Routers from './screens/Routers';
@@ -13,7 +13,7 @@ function App() {
     const history = useNavigate();
 
     useEffect(() => {
-        isAuth && history(RoutesEnum.Main);
+        isAuth && history(RouteName.Main);
     }, [isAuth]);
 
     return (
