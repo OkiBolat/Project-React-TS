@@ -1,9 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
+import { RouteName } from '../../libs/types/routes.enum';
+import Examine from '../../features/main/Examine';
 
 const QuestionsRouter = () => {
     return (
         <Routes>
-            <Route path={'/questions'} element={<div>QuestionsPage</div>} />;
+            <Route path={RouteName.Questions} element={<Examine />} />;
         </Routes>
     );
 };

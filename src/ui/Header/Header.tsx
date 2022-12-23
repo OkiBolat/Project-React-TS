@@ -1,45 +1,47 @@
 import React, { useState } from 'react';
-import { NavLink, redirect } from 'react-router-dom';
-import { $isAuth, logout } from '../../features/auth/Login/models/auth-model';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { $isAuth, logout } from '../../features/auth/Login/models/authModel';
+import { useStore } from 'effector-react';
+import { NAV_LINKS } from '../../libs/constants/routes';
 import logo from '../../assets/images/logo.svg';
 import Button from '../Button';
 import styles from './Header.module.scss';
-import { useStore } from 'effector-react';
-import { routes } from '../../libs/constants/routes';
+import { RouteName } from '../../libs/types/routes.enum';
+import classNames from 'classnames';
 
 const Header = () => {
+    const currentPath = useLocation().pathname;
     const isAuth = useStore($isAuth);
-    const [activeItem, setActiveItem] = useState(0);
+    const navigate = useNavigate();
 
-    const handleLogout = () => {
+    const onLogout = () => {
+        navigate('/auth');
         logout();
     };
     return (
         <div className={styles.header}>
             <div className={styles.header_container}>
-                <NavLink to={'/'}>
+                <NavLink to={RouteName.Main}>
                     <div className={styles.header_logo}>
                         <img src={logo} alt='logo' />
                     </div>
                 </NavLink>
                 {isAuth && (
                     <div className={styles.header_list}>
-                        {routes.map((item, index) => (
+                        {NAV_LINKS.map((navLink) => (
                             <NavLink
-                                onClick={() => setActiveItem(index)}
-                                key={item.path}
-                                className={[
-                                    styles.header_item,
-                                    index === activeItem ? styles.active : '',
-                                ].join(' ')}
-                                to={item.path}
+                                key={navLink.path}
+                                className={classNames(styles.header_item, {
+                                    [styles.active]: currentPath === navLink.path,
+                                })}
+                                to={navLink.path}
                             >
-                                {item.component}
+                                {navLink.title}
                             </NavLink>
                         ))}
                     </div>
                 )}
-                <Button variant='primary' onClick={handleLogout}>
+                <Button variant='primary' onClick={onLogout}>
                     {isAuth ? 'Выйти' : 'Войти'}
                 </Button>
             </div>

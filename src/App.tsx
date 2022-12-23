@@ -1,6 +1,8 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useStore } from 'effector-react';
-import { $isAuth, checkIsAuth } from './features/auth/Login/models/auth-model';
+import { $isAuth } from './features/auth/Login/models/authModel';
+import { useNavigate } from 'react-router-dom';
+import { RouteName } from './libs/types/routes.enum';
 import Header from './ui/Header';
 import AuthRouter from './screens/LoginRoutes/AuthRouter';
 import Routers from './screens/Routers';
@@ -8,13 +10,16 @@ import './App.scss';
 
 function App() {
     const isAuth = useStore($isAuth);
-    checkIsAuth()
+    const history = useNavigate();
+
+    useEffect(() => {
+        isAuth && history(RouteName.Main);
+    }, [isAuth]);
+
     return (
-        <div className='App'>
+        <div className='app'>
             <Header />
-            {!isAuth ?
-                <AuthRouter /> :
-                <Routers />}
+            {!isAuth ? <AuthRouter /> : <Routers />}
         </div>
     );
 }
